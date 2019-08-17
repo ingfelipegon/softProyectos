@@ -6,6 +6,7 @@ Vue.component('contador', {
             <button @click="numero++">+</button>
        </div>    
     `,
+    
     data(){
         return {
             numero: 0
