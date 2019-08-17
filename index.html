@@ -1,3 +1,65 @@
+<<<<<<< HEAD
 <html>
     Este es mi page de GIT Produccion
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.1.1/dist/vuex.js"></script>
+    <script src="components/saludos.js"></script>
+    <script src="components/contador.js"></script>
+    <script src="components/padre.js"></script>
+    <script src="components/hijo.js"></script>
+    <script src="components/titulo.js"></script>
+    <!-- <script src="app.js"></script> -->  
+</head>
+<body>
+    <div class="container mt-5" id="app">
+        <!-- <saludo></saludo> -->
+        <!-- <contador></contador> -->
+        <!-- <contador></contador> -->
+        <!-- <padre></padre> -->
+        <titulo></titulo>
+        
+    </div>    
+
+    <script>    
+        const store = new Vuex.Store({
+            state: {
+                numero: 10,
+                cursos: []
+            },
+            mutations: {
+                aumentar(state){
+                    state.numero ++            
+                },
+                disminuir(state, n){
+                    state.numero -= n      
+                },
+                llenarCursos(state, cursosAccion){
+                    state.cursos = cursosAccion        
+                }          
+            },
+            actions: {
+                obtenerCursos: async function({ commit }){
+                    const data = await fetch('cursos.json');
+                    const cursos = await data.json();
+                    commit('llenarCursos', cursos);
+                }           
+            }       
+        });
+
+        new Vue({
+            el: '#app',
+            store: store      
+        });
+    </script>
+</body>
+>>>>>>> Commited Linea Base
 </html>
